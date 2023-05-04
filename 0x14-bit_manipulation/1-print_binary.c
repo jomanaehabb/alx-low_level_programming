@@ -1,17 +1,23 @@
 #include "main.h"
 
-void print_binary(int num) {
-    int binary[32];
-    int i = 0;
-    
-    while (num > 0) {
-        binary[i] = num % 2;
-        num = num / 2;
-        i++;
-    }
-    
-    for (int j = i - 1; j >= 0; j--) {
-        printf("%d", binary[j]);
-    }
-    printf("\n");
+void print_binary(unsigned long int n)
+{
+	int i, count = 0;
+	unsigned long int number;
+
+	for (i = 63; i >= 0; i--)
+	{
+		number = n >> i;
+
+		if (number & 1)
+		{
+			_putchar('1');
+			count++;
+		}
+		else if (count)
+			_putchar('0');
+	}
+	if (!count)
+		_putchar('0');
 }
+
