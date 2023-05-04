@@ -1,6 +1,12 @@
 #include "main.h"
 
-void clear_bit(unsigned int *num, int index) {
-    unsigned int mask = ~(1 << index);
-    *num &= mask;
+int clear_bit(unsigned long int *n, unsigned int index)
+{
+	if (index > 63)
+	{
+		return (-1);
+	}
+	*n = (~(1UL << index) & *n);
+	return (1);
 }
+
